@@ -94,3 +94,7 @@ Body: Request Should be json object like below
 </pre>
 
 #### Response
+
+The Response will be ```400 Bad Request``` if either of the **parameters** in the body are not given or the **to_email/from_email** is not having a valid email format
+
+The Response will be ```200 Ok``` when the email is send

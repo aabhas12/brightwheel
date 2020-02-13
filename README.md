@@ -72,3 +72,22 @@ With the Docker containers running ...
 ```
 
 ## Request and Response
+
+#### Request
+
+The API is : ```/email/send_email/```.
+Method Type: ``` POST ```
+
+Body: Request Should be json object like below
+      <pre>
+         {
+                "to_email": "email of the to user",
+                "from_email": "email of the from user",
+                "to_name": "name",
+                "from_name": "from name",
+                "subject": "subject of the email",
+                "body": "body of the email"
+         }
+      </pre>
+      **All the fields are required**
+

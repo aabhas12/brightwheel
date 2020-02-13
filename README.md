@@ -80,7 +80,8 @@ The URL of API is : ```/email/send_email/```
 Method Type: ``` POST ```
 
 Body: Request Should be json object like below
-****All the fields are required****
+
+***All the fields are required***
 <pre>
    {
           "to_email": "email of the to user",

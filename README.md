@@ -22,6 +22,12 @@ Install **Python 3** using homebrew as described https://docs.python-guide.org/s
 
 Install **Pipenv** using homebrew as described https://pipenv.readthedocs.io/en/latest/
 
+Clone the repository
+```sh
+git clone https://github.com/aabhas12/brightwheel.git
+
+```
+
 ## Development Tools
 
 #### Docker

@@ -75,7 +75,8 @@ With the Docker containers running ...
 
 #### Request
 
-The API is : ```/email/send_email/```.
+The URL of API is : ```/email/send_email/```
+
 Method Type: ``` POST ```
 
 Body: Request Should be json object like below

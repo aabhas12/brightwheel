@@ -4,7 +4,7 @@ from rest_framework import status
 from email_validator import validate_email
 from email_validator import EmailNotValidError
 
-from brightwheelemail import functions
+from . import functions
 
 # Create your views here.
 
@@ -52,6 +52,7 @@ class EmailViewSet(viewsets.ViewSet):
             return response.Response(status=status.HTTP_400_BAD_REQUEST,
                                      data={'body is required'})
 
-        email_response = functions.send_simple_message(to, from_user, subject, body)
+        email_response = functions.send_simple_message(to, from_user,
+                                                       subject, body)
         print(email_response.__dict__)
         return response.Response(status=email_response.status_code)

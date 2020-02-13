@@ -4,6 +4,7 @@
 ## Contents
 - [Tech-stack used](#tech-stack-used)
 - [Getting Started](#getting-started)
+- [Development Tools](#development-tools)
 
 
 ## Tech-stack used

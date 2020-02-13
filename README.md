@@ -66,8 +66,6 @@ With the Docker containers running ...
 # run manage.py inside of the Docker environment
 ./docker/local/cli/manage <command arguments>
 
-# run pipenv inside of the Docker environment
-./docker/local/cli/pipenv <command arguments>
 
 # run pytest inside of the Docker environment
 ./docker/local/cli/pytest <command arguments>

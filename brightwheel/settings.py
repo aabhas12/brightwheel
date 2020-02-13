@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'brightwheelemail',
     'django.contrib.staticfiles',
-
+    'rest_framework',
     'drf_yasg'
 ]
 
@@ -55,6 +55,7 @@ TEMPLATES = [
 
 REST_FRAMEWORK = {
     'UNAUTHENTICATED_USER': None,
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
 }
 
 EMAIL_URL = os.environ.get('EMAIL_PROVIDER_URL')

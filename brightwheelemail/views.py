@@ -1,5 +1,5 @@
 from drf_yasg.utils import swagger_auto_schema
-from rest_framework import viewsets
+from rest_framework import views
 from rest_framework import response
 from rest_framework import status
 from email_validator import validate_email
@@ -10,15 +10,10 @@ from . import functions
 # Create your views here.
 
 
-class EmailViewSet(viewsets.ViewSet):
+class EmailViewSet(views.APIView):
     """
-    To send email to the user requested in the parameters
-    """
-
-    def create(self, request):
-        """
-
-            Request Should be json object like below
+            post:
+            Request Should be json object like below \n
             <pre>
             {
                 "to_email": "",
@@ -33,7 +28,9 @@ class EmailViewSet(viewsets.ViewSet):
 
 
 
-        """
+    """
+    def post(self, request, *args, **kwargs):
+
         to = request.data.get('to_email')
         if not to:
             return response.Response(status=status.HTTP_400_BAD_REQUEST,
@@ -74,4 +71,4 @@ class EmailViewSet(viewsets.ViewSet):
         email_response = functions.send_simple_message(to, from_user,
                                                        subject, body)
         print(email_response.__dict__)
-        return response.Response(status=email_response.status_code)
+        return response.Response(status=status.HTTP_200_OK)

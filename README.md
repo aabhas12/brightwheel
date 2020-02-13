@@ -29,6 +29,13 @@ Clone the repository
 git clone https://github.com/aabhas12/brightwheel.git
 
 ```
+Run the **development** Server
+Inside the project directory run this command on terminal:
+```
+docker-compose up
+```
+You will see success message with URL its working on.
+
 
 ## Development Tools
 

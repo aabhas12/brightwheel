@@ -1,3 +1,4 @@
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework import viewsets
 from rest_framework import response
 from rest_framework import status
@@ -15,7 +16,25 @@ class EmailViewSet(viewsets.ViewSet):
     """
 
     def create(self, request):
-        to = request.data.get('to')
+        """
+
+            Request Should be json object like below
+            <pre>
+            {
+                "to_email": "",
+                "from_email": "password",
+                "to_name": "name",
+                "from_name": "from name",
+                "subject": "subject of the email",
+                "body": "body of the email"
+            }
+            </pre>
+            **All the fields are required**
+
+
+
+        """
+        to = request.data.get('to_email')
         if not to:
             return response.Response(status=status.HTTP_400_BAD_REQUEST,
                                      data={'To is required'})
@@ -29,7 +48,7 @@ class EmailViewSet(viewsets.ViewSet):
         if not to_name:
             return response.Response(status=status.HTTP_400_BAD_REQUEST,
                                      data={'to_name is required'})
-        from_user = request.data.get('from')
+        from_user = request.data.get('from_email')
         if not from_user:
             return response.Response(status=status.HTTP_400_BAD_REQUEST,
                                      data={'from is required'})

@@ -12,6 +12,7 @@ requests = "*"
 email-validator = "*"
 pytest = "*"
 pytest-django = "*"
+drf-yasg = "*"
 
 [requires]
 python_version = "3.7"

@@ -5,6 +5,7 @@
 - [Tech-stack used](#tech-stack-used)
 - [Getting Started](#getting-started)
 - [Development Tools](#development-tools)
+- [Request and Response](#request-and-response)
 
 
 ## Tech-stack used
@@ -66,7 +67,8 @@ With the Docker containers running ...
 # run manage.py inside of the Docker environment
 ./docker/local/cli/manage <command arguments>
 
-
 # run pytest inside of the Docker environment
 ./docker/local/cli/pytest <command arguments>
 ```
+
+## Request and Response

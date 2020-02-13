@@ -6,7 +6,6 @@
 - [Getting Started](#getting-started)
 - [Development Tools](#development-tools)
 - [Request and Response](#request-and-response)
-      -[Resonse](#response)
 
 
 ## Tech-stack used

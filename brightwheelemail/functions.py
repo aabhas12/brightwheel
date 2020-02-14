@@ -3,14 +3,15 @@ import requests
 from brightwheel import settings
 
 
-def send_simple_message(to_email, from_email, subject, body):
+def send_simple_message(to_email: str, from_email: str, subject: str,
+                        body: str):
     if settings.EMAIL_PROVIDER == 'mailgun':
         return requests.post(settings.EMAIL_URL,
                              auth=("api", settings.API_KEY),
                              data={"from": from_email,
                                    "to": to_email,
                                    "subject": subject,
-                                   "text": body}
+                                   "html": body}
                              )
     elif settings.EMAIL_PROVIDER == 'sendgrid':
         return requests.post(settings.EMAIL_URL,

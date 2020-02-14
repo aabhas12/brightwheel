@@ -1,4 +1,3 @@
-from drf_yasg.utils import swagger_auto_schema
 from rest_framework import views
 from rest_framework import response
 from rest_framework import status
@@ -6,8 +5,6 @@ from email_validator import validate_email
 from email_validator import EmailNotValidError
 
 from . import functions
-
-# Create your views here.
 
 
 class EmailViewSet(views.APIView):
@@ -31,13 +28,13 @@ class EmailViewSet(views.APIView):
     """
     def post(self, request, *args, **kwargs):
 
-        to = request.data.get('to_email')
-        if not to:
+        to_email = request.data.get('to_email')
+        if not to_email:
             return response.Response(status=status.HTTP_400_BAD_REQUEST,
                                      data={'To is required'})
         try:
-            to = validate_email(to)
-            to = to['email']
+            to_email = validate_email(to_email)
+            to_email = to_email['email']
         except EmailNotValidError:
             return response.Response(status=status.HTTP_400_BAD_REQUEST,
                                      data={'To email is not valid'})
@@ -67,8 +64,13 @@ class EmailViewSet(views.APIView):
         if not body:
             return response.Response(status=status.HTTP_400_BAD_REQUEST,
                                      data={'body is required'})
+        body = f'<p>Hi {to_name}<p>  {body}  <p>Thanks {from_name}'
 
-        email_response = functions.send_simple_message(to, from_user,
+        email_response = functions.send_simple_message(to_email, from_user,
                                                        subject, body)
-        print(email_response.__dict__)
+        if (email_response.status_code == 400 or
+                email_response.status_code == 401):
+            return response.Response(status=email_response.status_code,
+                                     data=email_response.json())
+
         return response.Response(status=status.HTTP_200_OK)

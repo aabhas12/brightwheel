@@ -4,7 +4,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # development dependencies
-RUN apk update && apk add python3-dev gcc musl-dev netcat-openbsd
+RUN apk update && apk add python3-dev
 
 # update pip and install pipenv
 RUN pip install -U pip

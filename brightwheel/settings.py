@@ -11,7 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
+# See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
@@ -21,41 +21,13 @@ DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = []
 
-
-# Application definition
-
 INSTALLED_APPS = [
-    'django.contrib.contenttypes',
-    'brightwheelemail',
-    'django.contrib.staticfiles',
     'rest_framework',
-    'drf_yasg'
-]
-
-SWAGGER_SETTINGS = {
-    'SECURITY_DEFINITIONS': None
-}
-
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
+    'brightwheelemail',
 ]
 
 REST_FRAMEWORK = {
     'UNAUTHENTICATED_USER': None,
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
 }
 
 EMAIL_URL = os.environ.get('EMAIL_PROVIDER_URL')
@@ -65,6 +37,3 @@ API_KEY = os.environ.get('API_KEY')
 ROOT_URLCONF = 'brightwheel.urls'
 
 WSGI_APPLICATION = 'brightwheel.wsgi.application'
-
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')

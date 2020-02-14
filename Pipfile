@@ -10,10 +10,6 @@ django = "*"
 djangorestframework = "*"
 requests = "*"
 email-validator = "*"
-pytest = "*"
-pytest-django = "*"
-drf-yasg = "*"
-coreapi = "*"
 
 [requires]
 python_version = "3.7"

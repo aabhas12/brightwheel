@@ -29,6 +29,8 @@ Clone the repository
 git clone https://github.com/aabhas12/brightwheel.git
 
 ```
+Copy the .env.template file to .env and update with values for development
+
 Run the **development** Server
 Inside the project directory run this command on terminal:
 ```
